@@ -103,7 +103,7 @@ def main():
     #-----------------------------------------------------------------------------
     pars = []
     pars.append(0) #curvature
-    pars.append(0.67556)
+    pars.append(0.67556) #Hubble
     pars.append(0.27)#Omega_m
     pars.append(8.24e-5) #Omega_r
     pars.append(0.73) #Omega L
@@ -127,36 +127,39 @@ def main():
     print(Pg)
     '''
 
-    '''
+    
+    #TEST 1
+    # Comoving Distance
     #Comoving radial distance
     zz = np.logspace(-1,1,1000)
     D = []
     for z in zz:
         D.append( S(z,  pars))
-    plt.figure (2)
-    plt.xscale('log');plt.yscale('log');plt.xlim(zz[0],zz[-1])
-    plt.xlabel(r'z')
-    plt.ylabel(r'D')
+    plt.clf()
     plt.plot(zz ,D,'b-')
-    plt.savefig('Distance.pdf', dpi=150)
-    '''
+    plt.xscale('log');plt.yscale('log');plt.xlim(zz[0],zz[-1])
+    plt.xlabel(r'z');plt.ylabel(r'D')
+    name = 'co_distance.pdf'
+    plt.savefig(name, dpi=150)
+    print("File ", name, "Printed"  )
     
     
+    #TEST 2
     # Photometric redshiftdistribution
-    '''
+    
     zz = np.linspace(0,2.0,1000)
     PRS = []
     for z in zz:
         PRS.append( p1(z))
-    plt.figure (3)
-    #plt.xscale('log');plt.yscale('log');plt.xlim(zz[0],zz[-1])
-    plt.xlabel(r'z')
-    plt.ylabel(r'p(z)')
+    plt.clf()
+    plt.xlabel(r'z'); plt.ylabel(r'p(z)')
     plt.plot(zz ,PRS,'b-')
-    plt.savefig('Photometric_redshidt_distribution.pdf', dpi=150)
-    '''
+    name = "redshift_distribution.pdf"
+    plt.savefig(name, dpi=150)
+    print("File ", name, "Printed"  )
 
-    g(0.8, pars, p1)
+
+    #g(0.8, pars, p1)
     '''
     ##Lensing efficiency
     zz = np.linspace(0,2.0,10)

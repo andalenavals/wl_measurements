@@ -16,6 +16,11 @@ __pycache__/
 *.out
 *.qbs
 *.eps
+*.pdf
 
 # mypy
 .mypy_cache/
+*#
+*.#*
+*.ipynb_checkpoints*
+*env/
